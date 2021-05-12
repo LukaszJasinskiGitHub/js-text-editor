@@ -5,10 +5,8 @@ const textFormat = (typeOfFormat) => {
 
 const content = document.querySelector('div.text-editor-area');
 
-const saveDataToFile = () => {
-  console.log('save');
-  console.log(content.innerHTML);
-  fetch('/save', {
+const saveDataToFile = async () => {
+  const response = await fetch('/save', {
     method: 'POST',
     body: JSON.stringify({
       text: content.innerHTML, //przesyłany html
@@ -19,4 +17,13 @@ const saveDataToFile = () => {
   });
 };
 
-const loadDataFromFile = () => {};
+const loadDataFromFile = async () => {
+  const response = await fetch('/load', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((res) => res.json());
+
+  content.innerHTML = response.text; //podstawianie otrzymanego html do edytora tekstu
+};
