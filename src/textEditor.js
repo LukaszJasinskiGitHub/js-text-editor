@@ -5,6 +5,18 @@ const textFormat = (typeOfFormat) => {
 
 const content = document.querySelector('div.text-editor-area');
 
-const saveDataToFile = () => {};
+const saveDataToFile = () => {
+  console.log('save');
+  console.log(content.innerHTML);
+  fetch('/save', {
+    method: 'POST',
+    body: JSON.stringify({
+      text: content.innerHTML, //przesyłany html
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
 
 const loadDataFromFile = () => {};
