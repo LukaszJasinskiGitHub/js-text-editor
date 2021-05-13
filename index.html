@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='style/style.css'>
     <title>Text editor</title>
 </head>
 <body>
-    <div class="app-container">
-        <div class="toolbar">
-            <div class="toolbar-format">
-                <span class="format-button"><code onclick="textFormat('bold')" onmousedown="event.preventDefault()">Bold</code></span>
-                <span class="format-button"><code onclick="textFormat('italic')" onmousedown="event.preventDefault()">Italic</code></span>
-                <span class="format-button"><code onclick="textFormat('insertunorderedlist')" onmousedown="event.preventDefault()">List</code></span>
+    <div class='app-container'>
+        <div class='toolbar'>
+            <div class='toolbar-format'>
+                <span class='format-button'><code onclick="textFormat('bold')" onmousedown='event.preventDefault()'>Bold</code></span>
+                <span class='format-button'><code onclick="textFormat('italic')" onmousedown='event.preventDefault()'>Italic</code></span>
+                <span class='format-button'><code onclick="textFormat('insertunorderedlist')" onmousedown='event.preventDefault()'>List</code></span>
             </div>
             <div class="toolbar-options">
-                <span class="options-button"><code onclick="saveDataToFile()" onmousedown="event.preventDefault()">Save</code></span>
-                <span class="options-button"><code onclick="loadDataFromFile()" onmousedown="event.preventDefault()">Load</code></span>
+                <span class='options-button'><code onclick='saveDataToFile()' onmousedown='event.preventDefault()'>Save</code></span>
+                <span class='options-button'><code onclick='loadDataFromFile()' onmousedown='event.preventDefault()'>Load</code></span>
             </div>
         </div>
-        <div contenteditable="true" class="text-editor-area">
-            Sample text...
+        <div contenteditable='true' class='text-editor-area' >
+           Text...
         </div>
+        <div class='information-container'></div>
     </div>
-    <script src="./src/textEditor.js"></script>
+    <script src='./src/textEditor.js'></script>
 </body>
 </html>

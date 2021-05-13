@@ -67,6 +67,12 @@ html{
     font-size: 1.4rem;
 }
 
+.information-container{
+    padding: 10px;
+    font-size: 1.5rem;
+    
+}
+
 
 /* dodac klase active i wspolne style dla buttonow  */
 /* dodać style do li bo reset był */
