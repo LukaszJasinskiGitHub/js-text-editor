@@ -1,4 +1,3 @@
-
 *{
     margin: 0;
     padding: 0;
@@ -14,6 +13,8 @@ html{
     display: flex;
     flex-direction: column;
     width: 80%;
+    min-width: 320px;
+    max-width: 80%;
     margin: 0 auto;
 }
 
@@ -22,6 +23,7 @@ html{
     display: flex;
     display: row;
     justify-content: space-between;
+    min-width: fit-content;
     border: solid 1px rgba(122, 153, 247, 0.788);
     padding: 5px;
     border-radius:5px;
@@ -43,22 +45,36 @@ html{
     margin-right: 10px;
 }
 
-.format-button{
+.format-button,
+.options-button {
+    display: block;
     padding: 5px;
     margin: 0 2px;
+    border-radius:3px;
+    transition: .2s;
+}
+
+.format-button{
     background-color: rgba(122, 153, 247, 0.788);
     border: solid 1px rgba(16, 42, 117, 0.788);
-    border-radius:3px;
+}
+
+.format-button:hover,
+.format-button-active{
+    background-color: rgb(0, 64, 255);
+    color: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.445);
+    cursor: pointer;
 }
 
 .options-button{
-    padding: 5px;
-    margin: 0 2px;
     background-color: rgba(247, 228, 122, 0.788);
     border: solid 1px rgba(231, 207, 99, 0.788);
-    border-radius:3px;
 }
 
+.options-button:hover{
+    background-color: rgba(255, 248, 208, 0.788);
+}
 
 .text-editor-area {
     border: solid 1px rgba(122, 153, 247, 0.788);
@@ -70,9 +86,9 @@ html{
 .information-container{
     padding: 10px;
     font-size: 1.5rem;
-    
 }
 
-
-/* dodac klase active i wspolne style dla buttonow  */
-/* dodać style do li bo reset był */
+li {
+    margin-left: 25px;
+    padding: 2px;
+}

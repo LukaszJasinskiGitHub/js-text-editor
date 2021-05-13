@@ -1,20 +1,21 @@
-// funkcja podmienjąca parametr w funcji zaleznie od wybranego formatowania
-const textFormat = (typeOfFormat) => {
-  document.execCommand(typeOfFormat, false); // typeOfFormat - wybrany typ formatowania
-};
-
 const content = document.querySelector('div.text-editor-area');
 const messageBox = document.querySelector('div.information-container');
-let isLoading = false; // zapobiega kilku requestom przed otzrymaniem response
+let isLoading = false; // zapobiega kilku requestom przed otrzymaniem response
+
+// funkcja podmienjąca parametr w funcji oraz nadająca klasę active
+const textFormat = (typeOfFormat) => {
+  document.execCommand(typeOfFormat, false);
+  // typeOfFormat - wybrany typ formatowania
+  const btn = document.getElementById(`btn-${typeOfFormat}`); // pobranie przycisku
+  btn.classList.toggle('format-button-active'); // dodanie klasy active
+};
 
 // funkcja wyswietlająca komunikaty
 const handlingMessageBox = (saveData = false, loadData = false) => {
   let msg = '';
   if (saveData) {
-    // obsuga wiadomosci dla zapisu
     msg = 'Document saved';
   } else if (loadData) {
-    // obsuga wiadomosci dla wczytywania
     msg = 'Document loaded';
   }
   // kasowanie wiadomosci po 2 sekundach
@@ -27,7 +28,7 @@ const handlingMessageBox = (saveData = false, loadData = false) => {
 // funkcja zapisujaca tekst w pliku
 const saveDataToFile = async () => {
   if (isLoading) {
-    // zapobiega wyslaniu kolejnego requesta przed otrzymaniem odp
+    // zapobiega wysłaniu kolejnego requesta przed otrzymaniem odp
     messageBox.innerText = 'Loading... Please wait...';
     return;
   }
@@ -51,7 +52,7 @@ const saveDataToFile = async () => {
 // funkcja wczytująca tekst z pliku
 const loadDataFromFile = async () => {
   if (isLoading) {
-    // zapobiega wyslaniu kolejnego requesta przed otrzymaniem odp
+    // zapobiega wysłaniu kolejnego requesta przed otrzymaniem odp
     messageBox.innerText = 'Loading... Please wait...';
     return;
   }
